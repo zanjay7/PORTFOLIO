@@ -1,0 +1,58 @@
+.hero-content {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 10;
+  pointer-events: none;
+  padding: 0 100px;
+}
+
+.hero-right {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 15px;
+  text-align: left;
+}
+
+.hero-right h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #ffffff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+/* ===== Animated Words ===== */
+.words-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+.words-wrapper span {
+  font-size: 40px;
+  font-weight: 800;
+  color: blueviolet;
+  height: 60px;
+  line-height: 60px;
+  display: block;
+  text-align: left;
+  animation: move-up 8s infinite ease-in-out;
+}
+@keyframes move-up {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-60px); }
+  50%, 70% { transform: translateY(-120px); }
+  75%, 95% { transform: translateY(-180px); }
+  100% { transform: translateY(-180px); }
+}

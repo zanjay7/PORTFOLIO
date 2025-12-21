@@ -1,0 +1,115 @@
+.tech-section {
+  width: 100%;
+  padding: 100px 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  /* FIX: Changed from hidden to visible so glow effects aren't cut off */
+  overflow: visible; 
+}
+
+.tech-container {
+  width: 85%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tech-title {
+  font-weight: 800; /* Increased weight for that heavy look */
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: #fff;
+  margin-bottom: 60px; /* Added more space below title */
+  text-align: center;
+}
+
+.gradient-text {
+  color: blueviolet;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  /* FIX: Increased gap from 25px to 40px for more breathing room */
+  gap: 50px; 
+  width: 100%;
+  justify-content: center; 
+  justify-items: center;
+}
+
+.tech-card {
+  position: relative;
+  width: 100%;
+  max-width: 160px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  /* FIX: Removed overflow: hidden so glow/animations can expand outside the box */
+  overflow: visible; 
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tech-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(142, 68, 173, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.tech-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+  transform: scale(1.1);
+}
+
+.tech-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ccc;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* Subtle glow effect - now visible outside card */
+.card-glow {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* Using your blue-violet theme for the glow */
+  background: radial-gradient(circle, rgba(142, 68, 173, 0.3) 0%, transparent 70%);
+  filter: blur(30px);
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.tech-card:hover .card-glow {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tech-section { padding: 60px 0; }
+  .tech-container { width: 90%; }
+  .tech-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); 
+    gap: 20px; 
+  }
+  .tech-title { font-size: 2rem; }
+}

@@ -1,0 +1,261 @@
+.songs-container {
+  width: 100%;
+  min-height: 200vh; 
+  position: relative;
+  background-image: url('../assets/img4.png'); 
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+
+
+.songs-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15vh; 
+}
+
+/* --- HEADER --- */
+.songs-header {
+  text-align: center;
+  margin-bottom: 2vh;
+  z-index: 10;
+}
+
+.header-top, .header-main {
+  font-family: 'Arial Black', sans-serif;
+  font-weight: 800; /* Increased weight for that heavy look */
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: #000;
+  margin: 0;
+  line-height: 1.1;
+  
+  /* NEGATIVE spacing pulls letters together */
+  letter-spacing: -0.05em; 
+  
+  text-transform: uppercase;
+}
+.header-main span {
+  color: blueviolet;
+}
+.header-divider {
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center;
+  gap: 20px; /* Space between the text and the start of the lines */
+  width: 100%; /* Ensures the container spans the full width */
+  margin-top: 20px;
+}
+
+.line {
+  height: 1px;
+  background-color: #000;
+  flex-grow: 1; /* This makes the lines stretch to the edges */
+  opacity: 0.3; /* Matches the subtle look in your photo */
+}
+
+
+.italic-sub {
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  margin: 15px 0;
+  color: #000;
+}
+
+/* --- MARQUEE --- */
+.songs-marquee {
+  width: 100%;
+  overflow: hidden;
+  margin-top: -20px; 
+}
+
+.marquee-content {
+  display: flex;
+  gap: 30px;
+  padding: 40px 0;
+  animation: move-right 20s linear infinite; 
+}
+
+@keyframes move-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* --- THE FIXED IMAGE CARD --- */
+.song-card {
+  flex: 0 0 300px; /* Slightly wider for better proportions */
+  height: 440px;   /* Increased height to fit cover + text + branding */
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;   /* Consistent padding */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  transition: transform 0.3s ease;
+}
+
+.song-card:hover {
+  transform: translateY(-15px) rotate(1deg);
+}
+
+.song-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Forces the image to be a perfect square */
+  object-fit: cover;   /* Ensures image fills the square without distortion */
+  border-radius: 12px;
+  height: auto;        /* Overrides your previous 100% height */
+}
+
+.song-info {
+  margin-top: 15px;    /* Space between image and text */
+  padding-bottom: 40px; /* Space for the Spotify badge at bottom */
+}
+
+.song-info h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 4px 0 0 0;
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+}
+
+.spotify-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 24px;
+  color: #1DB954;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Optional: Add "Spotify" text next to icon to match your screenshots */
+.spotify-badge::after {
+  content: 'Spotify';
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1DB954;
+}
+
+/* --- PREMIUM SEE ALL SECTION --- */
+.see-all-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 150px 0;
+  perspective: 1000px;
+}
+
+.see-all-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  gap: 10px;
+}
+
+/* 1. Spinning Aura Background */
+.aura-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.aura {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(29, 185, 84, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulseAura 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+.see-icon {
+  font-size: 3.5rem;
+  color: #000; /* Start black, turns green on hover */
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. The Reveal Mask */
+.text-mask {
+  overflow: hidden; /* This hides the text while it's "below" the line */
+}
+.text-mask a {
+  text-decoration: none; /* Removes the underline */
+  color: inherit;        /* Keeps the text black (or whatever parent color is) */
+  display: block;        /* Ensures the link fills the mask container */
+}
+
+/* Optional: Ensure it stays clean even after being clicked */
+.text-mask a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.see-text {
+  font-family: 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #000;
+  letter-spacing: -0.05em;
+  margin: 0;
+  transform: translateY(100%); /* Start hidden below */
+  animation: revealUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+/* 3. Animated Underline */
+.underline {
+  width: 0;
+  height: 3px;
+  background-color: blueviolet;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 5px;
+}
+
+/* --- INTERACTION --- */
+.see-all-link:hover .see-icon {
+  color: #1DB954;
+  transform: translateY(-5px) scale(1.1);
+}
+
+.see-all-link:hover .underline {
+  width: 100%;
+}
+
+.see-all-link:hover .see-text {
+  color: blueviolet;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes revealUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulseAura {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.5); opacity: 0.6; }
+}

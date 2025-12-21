@@ -1,0 +1,143 @@
+/* --- LAYOUT & BACKGROUND --- */
+.about-section {
+  min-height: 100vh;
+  width: 100%;
+  background-size: 100% 100%; /* Stretches the torn paper to fit exactly */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.about-content-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- THE SHAPES --- */
+.equation-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.shape {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.text-serif { font-family: serif; font-style: italic; font-size: 1.1rem; color: inherit; }
+.text-bold { font-family: sans-serif; font-weight: 900; font-size: 1.5rem; text-transform: uppercase; line-height: 0.9; }
+
+/* Specific Shape Styles */
+.heart {
+  background-color: #f0a0d0;
+  border: 4px solid #5a32fa;
+  width: 180px;
+  height: 180px;
+  /* Simple heart approximation using border radius */
+  border-radius: 50% 50% 10% 10%; 
+  color: #000;
+}
+
+.slant {
+  background-color: #5a32fa;
+  color: #fff;
+  width: 220px;
+  height: 140px;
+  clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+}
+
+.arch {
+  background-color: #d4ff00;
+  border: 15px solid #ff9100;
+  border-radius: 120px 120px 0 0;
+  width: 200px;
+  height: 240px;
+  color: #000;
+}
+
+.circle {
+  background-color: #5a32fa;
+  color: #fff;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+}
+
+.symbol {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #000;
+  padding-bottom: 30px;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes floatSide {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(15px) rotate(3deg); }
+}
+
+@keyframes starSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+.float-up { animation: floatUp 4s ease-in-out infinite; }
+.float-side { animation: floatSide 5s ease-in-out infinite; }
+.star-spin { display: inline-block; animation: starSpin 3s linear infinite; font-size: 2.5rem; color: #5a32fa; }
+.bounce { animation: pulse 2s ease-in-out infinite; }
+
+.delay-1 { animation-delay: 0.7s; }
+.delay-2 { animation-delay: 1.4s; }
+
+/* --- INTERACTIVITY --- */
+.shape-wrapper:hover .shape {
+  transform: scale(1.15) rotate(-3deg);
+  z-index: 50;
+  cursor: pointer;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* --- TEXT CONTENT --- */
+.yup-banner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  color: #555252;
+}
+
+.yup-banner h2 { font-weight: 900; letter-spacing: 2px; }
+
+.about-bio-container {
+  max-width: 650px;
+  color: #000;
+}
+
+.about-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; }
+.about-para { font-size: 1.2rem; line-height: 1.7; opacity: 0.8; }

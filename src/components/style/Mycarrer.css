@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
+
+/* =========================
+   SECTION
+========================= */
+.career-section {
+  width: 100%;
+  padding: 100px 10%;
+  box-sizing: border-box;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+
+/* =========================
+   HEADER
+========================= */
+.career-header {
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+.career-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.career-title span {
+  color: blueviolet;
+  opacity: 0.85;
+}
+
+/* =========================
+   TIMELINE WRAPPER
+========================= */
+.career-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+
+  /* default value so it doesn't break before scroll */
+  --line-height: 0%;
+}
+
+/* =========================
+   CENTRAL LINE
+========================= */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 1;
+}
+
+/* Growing part of the line */
+.line-grow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--line-height);
+  background: linear-gradient(
+    to bottom,
+    rgba(216, 191, 255, 0),
+    #d8bfff
+  );
+  box-shadow:
+    0 0 15px rgba(216, 191, 255, 0.6),
+    0 0 30px rgba(216, 191, 255, 0.3);
+  transition: height 0.15s linear;
+}
+
+/* Glowing dot at the end */
+.line-glow-tip {
+  position: absolute;
+  top: calc(var(--line-height) - 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: #d8bfff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px #d8bfff,
+    0 0 25px #d8bfff,
+    0 0 45px #d8bfff;
+  transition: top 0.15s linear;
+}
+
+/* =========================
+   EXPERIENCE ROW
+========================= */
+.experience-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT */
+.exp-left {
+  text-align: right;
+  padding-right: 40px;
+}
+
+.exp-role {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.exp-company {
+  font-size: 0.9rem;
+  color: #d8bfff;
+}
+
+/* CENTER */
+.exp-center {
+  display: flex;
+  justify-content: center;
+}
+
+.exp-date {
+  font-size: 2.3rem;
+  font-weight: 900;
+  opacity: 0.9;
+}
+
+/* RIGHT */
+.exp-right {
+  padding-left: 40px;
+}
+
+.exp-desc {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+.exp-duration {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #777;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .career-section {
+    padding: 80px 6%;
+  }
+
+  .experience-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .exp-left,
+  .exp-right {
+    padding: 0;
+    text-align: center;
+  }
+
+  .timeline-line {
+    display: none;
+  }
+}
