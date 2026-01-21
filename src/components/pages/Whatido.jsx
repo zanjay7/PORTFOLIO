@@ -16,7 +16,7 @@ const Whatido = () => {
   ];
 
   return (
-    <section className="wid-section" id="work">
+    <section className="wid-section" id="whatido">
       <div className="wid-left">
         <div className="wid-heading-container">
           <h1 className="wid-main-title">

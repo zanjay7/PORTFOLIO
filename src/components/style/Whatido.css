@@ -4,21 +4,20 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
-  padding: 0 12%; /* Added more side breathing room */
+  padding: 0 8%;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  view-timeline-name: --wid-scroll;
-  view-timeline-axis: block;
+  background: rgba(0,0,0,0.05); /* optional background for visibility */
 }
 
 .wid-left {
-  flex: 0.6; /* Narrower left side */
+  flex: 0.6;
   display: flex;
   align-items: center;
 }
 
 .wid-main-title {
-  font-size: 4rem; /* Scaled down title */
+  font-size: 4rem;
   font-weight: 900;
   color: #fff;
   line-height: 1;
@@ -32,53 +31,50 @@
   flex: 1.4;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 15px; /* Tighter gap between boxes */
-  padding: 100px 0;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 50px 0;
 }
 
 .wid-service-box {
   position: relative;
-  padding: 20px; /* Smaller internal padding */
+  padding: 20px;
   border: 1px dashed rgba(255, 255, 255, 0.1);
   background: rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: all 0.3s ease-out;
-  animation: fadeAway linear forwards;
-  animation-timeline: --wid-scroll;
-  animation-range: exit 0% exit 80%;
 }
 
 .wid-service-box:hover {
   border-color: rgba(216, 191, 255, 0.4);
-  background: rgba(216, 191, 255, 0.02);
+  background: rgba(216, 191, 255, 0.05);
 }
 
 .service-id {
-  font-size: 1.2rem; /* Much smaller headers */
+  font-size: 1.2rem;
   font-weight: 900;
   color: #fff;
   letter-spacing: 1px;
 }
 
 .service-label, .skill-label {
-  font-size: 0.6rem; /* Micro label size */
-  color: #555;
+  font-size: 0.7rem;
+  color: #aaa;
   margin: 5px 0 10px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .service-desc {
-  font-size: 0.8rem; /* Compact description font */
+  font-size: 0.85rem;
   line-height: 1.4;
-  color: #999;
+  color: #ddd;
   max-width: 350px;
   margin-bottom: 0;
   transition: margin 0.3s ease;
 }
 
-/* === HOVER SKILLS LOGIC === */
+/* Hover to reveal skills */
 .skillset-container {
   max-height: 0;
   opacity: 0;
@@ -87,7 +83,7 @@
 }
 
 .wid-service-box:hover .skillset-container {
-  max-height: 150px; /* Sufficient for your list */
+  max-height: 150px;
   opacity: 1;
   margin-top: 15px;
 }
@@ -103,12 +99,12 @@
   padding: 3px 8px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px; /* More modern square-ish tags */
+  border-radius: 4px;
   color: #d8bfff;
   font-weight: 400;
 }
 
-/* Accents */
+/* Corner accents */
 .corner-accents .corner {
   position: absolute;
   width: 6px;
@@ -119,8 +115,3 @@
 .tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
 .bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
 .br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
-
-@keyframes fadeAway {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-40px); }
-}
