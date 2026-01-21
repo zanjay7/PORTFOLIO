@@ -26,7 +26,7 @@ const About = () => {
           <div className="shape-wrapper float-side delay-1">
             <div className="shape slant">
               <span className="text-serif">Efficient</span>
-              <span className="text-bold">UX</span>
+              <span className="text-bold">Backend</span>
             </div>
           </div>
 
