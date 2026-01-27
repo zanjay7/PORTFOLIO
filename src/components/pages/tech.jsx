@@ -15,7 +15,7 @@ const Tech = () => {
     { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
     { name: "Tailwind", icon: <SiTailwindcss />, color: "#06B6D4" },
     { name: "MySQL", icon: <SiMysql />, color: "#4479A1" },
-    { name: "REST API", icon: <SiPostman />, color: "#FF6C37" },
+    { name: "Postman", icon: <SiPostman />, color: "#FF6C37" },
     { name: "Arduino", icon: <SiArduino />, color: "#00979D" },
     { name: "Figma", icon: <SiFigma />, color: "#F24E1E" },
     { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26" },
